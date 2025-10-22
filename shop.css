@@ -1,0 +1,303 @@
+/* 基本スタイル */
+html {
+    font-size: 62.5%; /* 1rem = 10px に統一 */
+    scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ヘッダー */
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 7.5rem;
+  background-color: rgb(234, 174, 174);
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 999;
+}
+
+/* タイトル（ロゴ＋テキスト） */
+.site-title {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+
+.logo {
+  height: 6rem;
+  width: auto;
+}
+
+.site-name{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.menu {
+  display: none;
+}
+
+.right-icons {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-right: 4rem;
+}
+
+/* アイコンサイズ統一 */
+.user-icon,
+.cart-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  cursor: pointer;
+}
+
+.user-icon:hover,
+.cart-icon:hover {
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+/* ハンバーガー位置調整 */
+.menu-label {
+  position: relative; /* fixed → relative に変更 */
+  width: 2.4rem;
+  height: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer; /*カーソルを当てるとマウスアイコンが変わる*/
+  margin-left: 1rem;
+}
+
+.menu-label span {
+  background: #333;
+  height: 0.4rem;
+  width: 100%;
+  transition: 0.3s;
+}
+
+/* メニュー変形（ハンバーガー → ×） */
+.menu:checked ~ .menu-label span:nth-child(1) {
+  transform: rotate(45deg);
+  position: absolute;
+  top: 1.2rem;
+}
+.menu:checked ~ .menu-label span:nth-child(2) {
+  opacity: 0;
+}
+.menu:checked ~ .menu-label span:nth-child(3) {
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 1.2rem;
+}
+
+/* 右から出るメニュー */
+.nav {
+  position: fixed;
+  top: 7.5rem; /* ← ヘッダーの高さにぴったり合わせる！ */
+  right: 0;
+  width: 30%;
+  height: calc(100vh - 6rem); 
+  transform: translateX(100vw);
+  transition: transform 0.3s ease;
+  background: #f4f4f4;
+  padding: 0 2rem;
+  z-index: 998;
+  overflow-y: auto; /* スクロール対応を追加 */
+}
+
+
+/* メニュー表示時 */
+.menu:checked ~ .nav {
+  transform: translateX(0);
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 1rem 0;
+  font-size: 1.5rem;
+}
+
+.nav a:hover {
+  background: #ddd;
+}
+
+/* リンクに下線を追加 */
+.nav a.underline {
+  display: block;              /* ブロック要素にすることで幅いっぱいに */
+  border-bottom: 0.2rem solid #333; /* 下線の太さと色を指定 */
+  padding-bottom: 0.5rem;      /* 下線との間隔を調整（任意） */
+  font-size: 3rem;
+  pointer-events: none;
+}
+
+.nav::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+/* メニュースクロール */
+.nav::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 0.4rem;
+}
+
+/* メニュースクロールの残り部分 */
+.nav::-webkit-scrollbar-track {
+  background-color: #f4f4f4;
+}
+
+.nav img {
+  margin-bottom: 6rem; /* ハンバーガーメニューのロゴ下の余白 */
+}
+
+/* メニューのすべての商品押下で遷移 */
+#all-products,
+#find-material,
+#find-concern,
+#find-type {
+  scroll-margin-top: 5rem; /* ヘッダーの高さに合わせて調整 */
+}
+
+/* 各タイトル */
+.products {
+  padding-left: 12.5rem;
+  padding-top: 5.5rem;
+  padding-bottom: 0;
+  font-size: 5rem;
+}
+
+.material,
+.concern,
+.type {
+  padding-left: 12.5rem;
+  padding-top: 3.5rem;
+  padding-bottom: 0;
+  font-size: 3rem;
+}
+
+.list-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 横3列 */
+  gap: 2rem; /* カード間の余白 */
+  padding: 4rem;
+  padding-top: 0; 
+}
+
+.list {
+  background-color: transparent; /* 背景を透明に */
+  border: none;                  /* 枠線を消す */
+  border-radius: 0;              /* 角丸をなくす */
+  box-shadow: none;              /* 影を消す */
+  padding: 0;                    /* 内側の余白をなくす */
+  transition: none;              /* ホバー時の変化もなくす */
+  text-align: center;
+}
+
+.list:hover,
+.list-center:hover {
+  transform: scale(1.03);
+}
+
+.list img,
+.list-center img {
+  width: 70%;
+  max-width: 30rem;
+  height: auto;
+  border-radius: 0.4rem;
+}
+
+.text h4 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.1em;
+}
+
+.text p {
+  margin: 0;
+  margin-bottom: 2rem; /* ← 下に20pxの余白 */
+  font-size: 0.95em;
+  color: #333;
+}
+
+.list-center {
+  grid-column: 2 / span 1; /* 3列グリッドの中央に配置 */
+  justify-self: center;    /* 中央寄せ */
+  background-color: transparent; /* 背景を透明に */
+  border: none;                  /* 枠線を消す */
+  border-radius: 0;              /* 角丸をなくす */
+  box-shadow: none;              /* 影を消す */
+  padding: 0;                    /* 内側の余白をなくす */
+  transition: none;              /* ホバー時の変化もなくす */
+  text-align: center;
+}
+
+
+/* フッター */
+.fixed-footer {
+  background-color: rgb(234, 174, 174);
+  color: #a12929;  /* フォントカラー*/
+  height: 30rem;
+  padding: 3rem 4rem 0 4rem;
+  text-align: left;
+}
+
+
+.footer-products,
+.footer-Contents,
+.footer-information {
+  list-style: none;
+  display: flex;
+  flex-direction: column; /* ← これを残す！ */
+  align-items: flex-start;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-content {
+  display: flex;
+  align-items: flex-start; /* 上寄せ */
+  gap: 20rem; /* ロゴとリンク群の間隔 */
+}
+
+
+.footer-products a,
+.footer-Contents a,
+.footer-information a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+
+.footer-products a:hover,
+.footer-Contents a:hover,
+.footer-information a:hover {
+  text-decoration: underline;
+}
+
+.footer-underline {
+  font-size: 2rem;
+  color: #000000;
+}
+
+.copyright{
+  text-align: center;
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 12rem; /* 上のセクションとの余白 */
+}
