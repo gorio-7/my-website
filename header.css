@@ -465,10 +465,7 @@ body {
 
 
 
-.top-image {
-  width: 100%;
-  height: auto;
-}
+
 
 
 
@@ -562,6 +559,106 @@ figure {
   margin-top: 9rem; /* 上のセクションとの余白 */
 }
 
+/* 共通スタイル（全端末に適用） */
+
+/* スマホ用 */
+@media screen and (max-width: 768px) {
+
+  /* 全体の横スクロール防止 */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* 各タイトル */
+.brand,
+.topic,
+.products,
+.trampoline,
+.map-title {
+  padding: 0 2rem;
+  font-size: 3rem;
+}
+
+/* trahearceの説明 */
+.egg {
+  text-align: left;
+  line-height: 1.8;
+  font-size: 1.5rem;
+  padding: 0 2rem;
+}
+
+  /* グリッドを1列に */
+  .list-grid {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+
+  /* トピックリストの余白調整（←これが原因の可能性大） */
+  .topic-list {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  /* トランポリン画像と説明を縦並びに */
+  .trampoline-peach,
+  .trampoline-apple,
+  .trampoline-orange {
+    float: none;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+
+  .trampoline-peach + p,
+  .trampoline-apple + p,
+  .trampoline-orange + p {
+    padding: 2rem;
+  }
+
+  /* 画像のはみ出し防止 */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* ポップアップの幅調整 */
+  .popup-window {
+    width: 90%;
+    padding: 2rem;
+  }
+
+  .popup-item {
+    width: 100%;
+  }
+
+  /* フッターの横並びを解除 */
+  .footer-content {
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .footer-links a {
+    margin-left: 0;
+  }
+}
+
+
+
+
+
+
+
+
+/* タブレット用（横持ち含む） */
+@media screen and (max-width: 768px) {
+ 
+}
+
+/* パソコン用（広め） */
+@media screen and (min-width: 1025px) {
+ 
+}
 
 
 
