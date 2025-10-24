@@ -379,6 +379,7 @@ body {
   margin: 0 auto;
   display: block;
   padding-bottom: 7rem;
+  padding-top: 3rem;
 }
 
 .kyoto-label,
@@ -651,14 +652,160 @@ figure {
 
 
 /* タブレット用（横持ち含む） */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
  
 }
 
 /* パソコン用（広め） */
 @media screen and (min-width: 1025px) {
+
+    html, body {
+    overflow-x: hidden;
+  }
  
+  .small {
+  margin-top: 21rem;
 }
+
+
+  /* 各タイトルの余白とサイズを拡張 */
+  .brand,
+  .topic,
+  .products,
+  .trampoline,
+  .map-title {
+    padding: 0 7rem;
+    font-size: 5rem;
+  }
+
+  /* trahearceの説明 */
+.egg {
+  text-align: center;
+  line-height: 1.8;
+  font-size: 1.5rem;
+  padding: 0 7rem;
+}
+
+/* trahearceの写真 */
+.brand-photo-wrapper {
+  text-align: center;
+}
+
+.brand-photo-wrapper img {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+  /* トピックリストの余白を広く */
+  .topic-list {
+    padding-left: 47rem;
+    padding-right: 7rem;
+    font-size: 2rem;
+  }
+
+  .list-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 横3列 */
+  gap: 2rem; /* カード間の余白 */
+  padding: 0 7rem;
+}
+
+.list {
+  background-color: transparent; /* 背景を透明に */
+  border: none;                  /* 枠線を消す */
+  border-radius: 0;              /* 角丸をなくす */
+  box-shadow: none;              /* 影を消す */
+  padding: 0;                    /* 内側の余白をなくす */
+  transition: none;              /* ホバー時の変化もなくす */
+  text-align: center;
+}
+
+.list:hover {
+  transform: scale(1.03);
+}
+
+.list img {
+  display: inline-block;
+  width: 70%;
+  height: auto;
+  border-radius: 0.4rem;
+}
+
+.text h4 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.1em;
+}
+
+.text p {
+  margin: 0;
+  margin-bottom: 2rem; /* ← 下に20pxの余白 */
+  font-size: 0.95em;
+  color: #333;
+}
+
+
+  /* トランポリン画像と説明を横並びに */
+  .trampoline-peach,
+  .trampoline-apple,
+  .trampoline-orange {
+    float: left;
+    width: 30%;
+    padding: 0 10rem;
+    margin-bottom: 10rem;
+  }
+
+  .trampoline-peach + p,
+  .trampoline-apple + p,
+  .trampoline-orange + p {
+    padding: 10rem;
+    font-size: 1.6rem;
+    line-height: 1.8;
+  }
+
+  /* ポップアップのサイズを広く */
+  .popup-window {
+    width: 70rem;
+    padding: 5rem;
+  }
+
+  .popup-item {
+    width: 100rem;
+  }
+
+  /* フッターの横並びと余白調整 */
+  .footer-content {
+    flex-direction: row;
+    gap: 15rem;
+  }
+
+  .footer-links a {
+    margin-left: 37rem;
+    font-size: 2rem;
+  }
+
+  .footer-information a {
+    font-size: 1.6rem;
+    padding-right: 7rem;
+  }
+
+  .copyright {
+    font-size: 1.4rem;
+    margin-top: 11rem;
+  }
+
+    /* 画像のはみ出し防止 */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+}
+
+
+
 
 
 
